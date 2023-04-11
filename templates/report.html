@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Job Search</title>
+        <link
+            rel="stylesheet"
+            href="{{url_for('static', filename='style.css')}}"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        />
+    </head>
+    <body style="display: flex">
+        <div class="job-title">
+            <h1>Search Result</h1>
+            <hr />
+            <h3>
+                {{searchingBy}}에 대한 <br />{{resultNumber}}건의 결과를
+                찾았습니다.
+            </h3>
+            <a href="/export?word={{searchingBy}}" style="margin-right: 5px">
+                <i class="fas fa-download"></i>
+                CSV파일로 내보내기
+            </a>
+            <a href="/">
+                <i class="fas fa-home"></i>
+                돌아가기
+            </a>
+        </div>
+        <div class="job-list overflow scrollbar">
+            {% for job in jobs %}
+            <div OnClick="window.open('{{job.link}}')" class="job">
+                <strong>
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    {{job.title}}
+                    <br />
+                </strong>
+                <span style="margin-right: 5px">
+                    <i class="fas fa-building"></i>
+                    {{job.company}}
+                </span>
+                <span>
+                    <i class="fas fa-map-marked"></i>
+                    {{job.location}}
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

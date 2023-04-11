@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Job Search</title>
+        <link
+            rel="stylesheet"
+            href="{{url_for('static', filename='style.css')}}"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        />
+    </head>
+    <body>
+        <form action="/report" method="get">
+            <h1>
+                <i class="fas fa-briefcase"></i>
+                일자리 찾기
+            </h1>
+            <input placeholder="검색어를 입력해 주세요" name="word" required />
+            <button>검색</button>
+        </form>
+    </body>
+</html>
